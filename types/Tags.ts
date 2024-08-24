@@ -4,4 +4,4 @@ type Tag = {
 
 type TagArray = Tag[];
 
-export { Tag, TagArray }
+export type { Tag, TagArray }

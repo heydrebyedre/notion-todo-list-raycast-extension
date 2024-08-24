@@ -1,8 +1,8 @@
 import { TagArray } from "../types/Tags"
 
-export default function determineIcon(taskTitle: string, tagArr: TagArray): string {
+export default function determineIcon(taskTitle: string, tagArr: TagArray) {
     taskTitle = taskTitle.toLowerCase()
-    let icon = "✅"
+    let icon:string = "✅"
     for (const tagObject of tagArr) {
         if (tagObject.name === "Health and Fitness") icon = "🫀"
         if (tagObject.name === "Shopping") icon = "🛒"

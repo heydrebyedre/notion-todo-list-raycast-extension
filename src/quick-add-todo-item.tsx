@@ -1,10 +1,17 @@
-import { Detail } from "@raycast/api";
-import capitalCase from "../util/capitalCase"
-import parseTodo from "../util/parseTodo"
+import { Action, ActionPanel, Form, getPreferenceValues, LaunchProps } from "@raycast/api";
+import { Client } from "@notionhq/client";
+import { addTodoToNotion } from "../api/addTodoToNotion"
 
-let todo: string = "make dinner for esa #prs /tomorrow 8:29pm p1"
+const preferences = getPreferenceValues();
 
-export default function Command() {
-    console.log(parseTodo(todo))
-    return <Detail markdown={"Hi"} />
+
+
+
+export default function QuickAddTodo(props: LaunchProps<{arguments: Arguments.QuickAddTodoItem}>) {
+    const { task } = props.arguments
+    console.log(preferences)
+    addTodoToNotion(task)
+    return (
+        <Form />
+    )
 }

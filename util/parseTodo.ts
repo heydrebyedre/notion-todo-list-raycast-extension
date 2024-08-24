@@ -1,15 +1,13 @@
 import capitalCase from "./capitalCase";
 import Sugar from "sugar";
+import Todo from "../types/Todo"
 
-export default function parseTodo(taskTitle: string) {
-    let priority: string = "p4";
+export default function parseTodo(taskTitle: string): Todo {
+    let priority: string = "P4";
     let match = /p[1-4]/i.exec(taskTitle)
     if (match) {
-        priority = match[0]
-        console.log(taskTitle.indexOf(priority))
+        priority = match[0].toUpperCase()
         taskTitle = taskTitle.replace(/p[1-4]/i, "")
-    } else {
-        return
     }
     const tagsIndex = taskTitle.indexOf("#")
     const dateIndex = taskTitle.indexOf("/")
