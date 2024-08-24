@@ -2,15 +2,17 @@ import { Action, ActionPanel, Form, getPreferenceValues, LaunchProps } from "@ra
 import { Client } from "@notionhq/client";
 import { addTodoToNotion } from "../api/addTodoToNotion"
 
-const preferences = getPreferenceValues();
+const { notionToken, databaseId } = getPreferenceValues();
+console.log(typeof notionToken, typeof databaseId)
 
-
+const notion = new Client({
+    auth: notionToken
+})
 
 
 export default function QuickAddTodo(props: LaunchProps<{arguments: Arguments.QuickAddTodoItem}>) {
     const { task } = props.arguments
-    console.log(preferences)
-    addTodoToNotion(task)
+    addTodoToNotion(notion, databaseId, task)
     return (
         <Form />
     )
