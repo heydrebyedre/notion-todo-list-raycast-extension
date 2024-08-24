@@ -15,7 +15,7 @@
       "title": "Quick Add ToDo Item",
       "subtitle": "Quickly add an item using natural language",
       "description": "",
-      "mode": "no-view"
+      "mode": "view"
     },
     {
       "name": "search-todos",
@@ -27,7 +27,9 @@
   ],
   "dependencies": {
     "@raycast/api": "^1.81.2",
-    "@raycast/utils": "^1.16.3"
+    "@raycast/utils": "^1.16.3",
+    "sugar": "^2.0.6",
+    "sugar-date": "^2.0.6"
   },
   "devDependencies": {
     "@raycast/eslint-config": "^1.0.8",
