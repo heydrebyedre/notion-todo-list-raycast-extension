@@ -3,7 +3,6 @@ import { Client } from "@notionhq/client";
 import { addTodoToNotion } from "../api/addTodoToNotion"
 
 const { notionToken, databaseId } = getPreferenceValues();
-console.log(typeof notionToken, typeof databaseId)
 
 const notion = new Client({
     auth: notionToken
