@@ -11,11 +11,11 @@ export default function parseTodo(taskTitle: string): Todo {
     }
     const tagsIndex = taskTitle.indexOf("#")
     const dateIndex = taskTitle.indexOf("/")
-    const todoTitle = capitalCase(taskTitle.split("#")[0])
-    let tagsString = taskTitle.slice(tagsIndex).split("/")[0]
+    const todoTitle = capitalCase(taskTitle.split("#")[0]).trim()
+    let tagsString = taskTitle.slice(tagsIndex).split("/")[0].trim()
     tagsString = tagsString.substring(1, tagsString.length)
     let dateString = taskTitle.slice(dateIndex)
-    dateString = dateString.substring(1, dateString.length)
+    dateString = dateString.substring(1, dateString.length).trim()
     let parsedDate = Sugar.Date.create(dateString)
     return {
         todoTitle,
