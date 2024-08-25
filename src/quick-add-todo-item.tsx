@@ -1,4 +1,5 @@
-import { Action, ActionPanel, Form, getPreferenceValues, LaunchProps } from "@raycast/api";
+import { Action, ActionPanel, Form, getPreferenceValues, LaunchProps, closeMainWindow, popToRoot } from "@raycast/api";
+import { useEffect } from "react";
 import { Client } from "@notionhq/client";
 import { addTodoToNotion } from "../api/addTodoToNotion"
 
@@ -12,7 +13,13 @@ const notion = new Client({
 export default function QuickAddTodo(props: LaunchProps<{arguments: Arguments.QuickAddTodoItem}>) {
     const { task } = props.arguments
     addTodoToNotion(notion, databaseId, task)
+    useEffect(function() {
+        setTimeout(function() {
+            closeMainWindow({ clearRootSearch: true })
+        }, 100)
+    }, [])
     return (
         <Form />
     )
-}
+
+}   
